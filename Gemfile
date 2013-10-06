@@ -6,7 +6,6 @@ gem 'jquery-rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', platforms: :ruby
 gem 'activerecord-jdbcmysql-adapter', platforms: :jruby
 gem 'jruby-openssl', platforms: :jruby
 gem 'actionpack-page_caching'
@@ -20,6 +19,7 @@ group :assets do
   gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails'
 
   gem 'therubyrhino', platforms: :jruby
+  gem 'therubyracer', platforms: :mri
 end
 
 # To use ActiveModel has_secure_password
@@ -41,10 +41,16 @@ end
 # gem 'ruby-debug'
 
 group :newrelic do
+  gem 'mysql2', platforms: :ruby
   gem 'newrelic_rpm'
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :development do
+  gem 'sqlite3'
   gem 'quiet_assets'
   gem 'puma'
 end
