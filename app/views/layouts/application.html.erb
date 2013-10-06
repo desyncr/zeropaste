@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title><%= html_title %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+  </head>
+  <body>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+
+          <%= yield %>
+
+          <div class="footer">
+            <hr />
+            <p>
+             Zeropaste &copy; edogawaconan 2012.
+             <a href="https://bitbucket.org/edogawaconan/zeropaste">Source</a>.
+             <%= link_to 'Donate', 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=edho%40myconan%2enet&lc=ID&item_name=Zeropaste%20development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_subscribe_LG%2egif%3aNonHosted' %>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" %>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

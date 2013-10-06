@@ -1,0 +1,37 @@
+<%= form_for(@paste) do |f| %>
+  <% if @paste.errors.any? %>
+    <div class="alert alert-error" id="error_explanation">
+      <h5><%= pluralize(@paste.errors.count, "error") %> prohibited this paste from being saved:</h5>
+
+      <ul>
+      <% @paste.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_area :paste, :class => 'span12', :rows => 10 %>
+
+    <div class="form-horizontal">
+      <div class="control-group">
+        <%= f.label :key, "Deletion key", class: "control-label" %>
+        <div class="controls">
+          <%= f.text_field :key %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :is_private, "Make private", class: "control-label" %>
+        <div class="controls">
+          <%= f.check_box :is_private %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to 'Clear', root_path, :class => 'btn', :id => 'reset_paste' %>
+  </div>
+<% end %>

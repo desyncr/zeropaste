@@ -1,0 +1,7 @@
+textarea#paste_paste, .mirrored_text {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  resize: none;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}

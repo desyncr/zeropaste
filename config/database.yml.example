@@ -1,0 +1,21 @@
+# Copy this to "database.yml" and adjust the fields accordingly.
+# Should work with any adapter.
+login: &login
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: zp
+  password: silica
+  host: 127.0.0.1
+
+development:
+  database: zeropaste_dev
+  <<: *login
+
+test:
+  database: zeropaste_test
+  <<: *login
+
+production:
+  database: zeropaste
+  <<: *login

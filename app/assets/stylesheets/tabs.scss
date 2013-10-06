@@ -1,0 +1,30 @@
+#md {
+  // copypasta from bootstrap's variables.scss
+  $baseFontSize_orig: 14px;
+  $baseLineHeight_orig: 20px;
+
+  // reduce for paste show
+  $baseFontSize: $baseFontSize_orig * 0.8;
+  $baseLineHeight: $baseLineHeight_orig * 0.8;
+
+  .well {
+    background-color: darken(white, 2%);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  // copypasta from bootstrap's type.scss
+  h1,
+  h2,
+  h3 { line-height: $baseLineHeight * 2; }
+
+  // more copypasta from bootstrap's type.scss
+  h1 { font-size: $baseFontSize * 2.75; }
+  h2 { font-size: $baseFontSize * 2.25; }
+  h3 { font-size: $baseFontSize * 1.75; }
+  h4 { font-size: $baseFontSize * 1.25; }
+  h5 { font-size: $baseFontSize; }
+  h6 { font-size: $baseFontSize * 0.85; }
+}

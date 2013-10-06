@@ -1,0 +1,13 @@
+<% provide :title, 'New Paste' %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-info">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<div class="page-header">
+  <h1>New Paste</h1>
+</div>
+
+<%= render 'form' %>

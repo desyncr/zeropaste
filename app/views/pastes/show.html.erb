@@ -1,0 +1,59 @@
+<% provide :title, "Paste ##{@paste.id}" %>
+
+<% if flash[:error] %>
+  <div class="alert alert-error">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<div class="page-header">
+  <h1><%= content_for :title %></h1>
+</div>
+
+<div id="paste-show" class="tabbable" data-id="<%= @paste.id %>">
+  <div class="btn-toolbar">
+    <div id="paste-mode" class="btn-group" data-toggle="buttons-radio">
+      <%= link_to 'Plain', '#pl', :data => { :toggle => 'tab' }, :class => 'btn active' %>
+      <%= link_to 'Highlight', '#hl', :data => { :toggle => 'tab' }, :class => 'btn' %>
+      <%= link_to 'Markdown', '#md', :data => { :toggle => 'tab' }, :class => 'btn' %>
+    </div>
+    <div class="btn-group" id="paste-resize">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" data-base="Width: :size:" href="#">
+        Width: auto
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#">auto</a></li>
+        <li><a href="#">560px</a></li>
+        <li><a href="#">760px</a></li>
+        <li><a href="#">960px</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="paste" class="tab-content">
+    <div class="tab-pane active" id="pl">
+      <pre><%= @paste.paste %></pre>
+    </div>
+    <div class="tab-pane" id="hl">
+      <pre class="prettyprint linenums"></pre>
+    </div>
+    <div class="tab-pane" id="md">
+      <div class="well"></div>
+    </div>
+  </div>
+</div>
+
+<div class="input-append">
+  <%= form_for @paste, :method => :delete do |f| %>
+    <%= f.text_field :key, :value => nil, :placeholder => 'Deletion key', :autofocus => !flash[:error].blank? %>
+    <%= f.submit 'Delete this paste', :class => 'btn btn-danger' %>
+  <% end %>
+</div>
+
+<div>
+  <ul class="nav nav-pills">
+    <li><%= link_to 'Raw', paste_path(@paste, :txt) %></li>
+    <li><%= link_to 'New paste based on this', root_path(:base => @paste.id) %></li>
+    <li><%= link_to 'More Paste', root_path %></li>
+  </ul>
+</div>
